@@ -96,8 +96,8 @@ h4 {
 /* Useful classes and styles */
 a.github-ribbon {
 	position: absolute;
-	top: 45px;
-	left: 0;
+	top: 40px;
+	left: 10px;
 	border: 0;
 }
 
