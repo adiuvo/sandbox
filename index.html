@@ -50,8 +50,8 @@
         <p>My personal place for code examples and other stuff</p>
         <hr class="soften">
 
-        <span class="label label-important">How about a code example:</span>
-      <pre class='prettyprint'>
+        <span class="label label-important">Code example (Javascript):</span>
+      <pre class='prettyprint'><code>
         &lt;script&gt;
         function display_awesomeness();
         {
@@ -61,11 +61,78 @@
       &lt;form&gt;
         &lt;input type="button" value="Click me!" onclick="display_awesomeness()" /&gt;
       &lt;/form&gt;
-			</pre>
+      </code></pre>
+
+        <span class="label label-important">Code example (C#):</span>
+      <pre class='prettyprint'><code>
+        string[] names = { "Tom", "Dick", "Harry", "Mary", "Jay" };
+
+        IEnumerable&lt;string&gt; query = names
+                  .Where   (n => n.Contains ("a"))
+                  .OrderBy (n => n.Length)
+                  .Select  (n => n.ToUpper());
+
+                  query.Dump();
+
+                  // The same query constructed progressively:
+
+                  IEnumerable&lt;string&gt; filtered  = names.Where(n => n.Contains ("a"));
+                      IEnumerable&lt;string&gt; sorted = filtered.OrderBy (n => n.Length);
+                          IEnumerable&lt;string&gt; finalQuery = sorted.Select    (n => n.ToUpper());
+
+                              filtered.Dump   ("Filtered");
+                              sorted.Dump     ("Sorted");
+                              finalQuery.Dump ("FinalQuery");
+		</code></pre>
+        <span class="label label-important">Code example (C++):</span>
+      <pre class='prettyprint'><code>
+          #ifdef _MSC_VER
+          #pragma once
+          #endif
+
+          #ifndef CODE128B_H
+          #define CODE128B_H 1
+
+          #include <string>
+
+
+          class CCode128B
+          {
+          public:
+          CCode128B(void);
+          ~CCode128B(void);
+
+          std::string Encode(const char * pszText);
+          std::string CreateRaster(const char * pIn, int iBaseBarWidth = 1, int iInkSpread = 0);
+
+          // The following constants define the special character codes in the Code 128 table;
+          // see documentation on Code 128 to understand what these codes represent.
+          static const char FNC3		= 96;
+          static const char FNC2		= 97;
+          static const char SHIFT		= 98;
+          static const char CODE_C	= 99;
+          static const char CODE_B	= 100;
+          static const char FNC4_B	= 100;
+          static const char CODE_A	= 101;
+          static const char FNC4_A	= 101;
+          static const char FNC1		= 102;
+          static const char START_A	= 103;
+          static const char START_B	= 104;
+          static const char START_C	= 105;
+          static const char STOP		= 106;
+
+          protected:
+          int CharToCodeB(char ch);
+          };
+
+
+          #endif	// CODE128B_H     
+      </code></pre>
     </div>
 </div>
 
 
-<a href='https://github.com/adiuvo/sandbox' class='github-ribbon'><img src='assets/images/github-ribbons/green.png'/></a>
+<a href='https://github.com/adiuvo/sandbox' class='github-ribbon'><img
+        src='assets/images/github-ribbons/green.png'/></a>
 </body>
 </html>
